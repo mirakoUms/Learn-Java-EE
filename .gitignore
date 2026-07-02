@@ -6,3 +6,6 @@ playground
 
 # Vscode setting
 .vscode
+
+#cache file
+temp.md

@@ -55,6 +55,11 @@ Optional<String> opt = Optional.ofNullable(name);
 Optional<String> opt = Optional.empty();
 ```
 
+- 如果optional.of()传null的参数则空指针异常
+```Java
+String name = null;
+Optional<String> name = Optional.of(name); //　nullpointerException
+```
 
 ### Fall Through
 
