@@ -21,7 +21,7 @@ class User implements Serializable {
 
 - serialVersionUID
 
-用来判断“保存时的类”和“读取时的类”版本是否兼容。反序列化时会用它验证发送方和接收方加载的类是否兼容；如果不兼容，可能抛出 `InvalidClassException`。
+用来判断“保存时的类”和“读取时的类”版本是否兼容。反序列化时会用它验证发送方和接收方加载的类是否兼容；如果不兼容抛出 `InvalidClassException`。
 
 ```java
 
@@ -61,7 +61,7 @@ Optional<String> opt = Optional.empty();
 > Java 17 的 -> 写法不会 fall through
 
 ```Java
-// Java 17 里可以写：
+// Java 17 新功能
 
 int x = 1;
 
@@ -69,10 +69,7 @@ switch (x) {
     case 1 -> System.out.println("A");
     case 2 -> System.out.println("B");
     case 3 -> System.out.println("C");
-}
-
-// 输出：A
-// case 1 -> 执行完后，不会继续执行 case 2。
+}// 输出：A
 ```
 
 ### final
