@@ -9,3 +9,6 @@ playground
 
 #cache file
 temp.md
+
+#dev container
+.devcontainer
