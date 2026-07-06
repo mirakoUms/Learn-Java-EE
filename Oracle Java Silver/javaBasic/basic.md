@@ -98,5 +98,3 @@ final Class foo2 extends foo() {
 
 ## 不可变类
 
-
-## record
