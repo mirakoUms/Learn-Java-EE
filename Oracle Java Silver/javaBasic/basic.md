@@ -95,3 +95,8 @@ final Class foo() {
 final Class foo2 extends foo() {
     // error: final Class cant not be extended
 }
+
+## 不可变类
+
+
+## record
