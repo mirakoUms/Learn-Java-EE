@@ -8,6 +8,7 @@ Oracle Java Silver study notes and reference material.
 
 | No. | Topic | File |
 | --- | --- | --- |
+| 00 | Java SE Common Pitfalls | [00-java-se-common-pitfalls.md](./notes/fundamentals/00-java-se-common-pitfalls.md) |
 | 01 | Java Basics | [01-java-basics.md](./notes/fundamentals/01-java-basics.md) |
 | 02 | Data Types | [02-data-types.md](./notes/fundamentals/02-data-types.md) |
 | 03 | Operators and Flow | [03-operators-and-flow.md](./notes/fundamentals/03-operators-and-flow.md) |

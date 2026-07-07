@@ -1965,3 +1965,635 @@ Output:
 Exit code: 0
 ```
 
+## 2026-07-07 21:47:47 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git status --short --branch
+rg -n "main\(|public static void main|package\s|import\s|javac|java\s" oracle-java-silver/notes/fundamentals oracle-java-silver/README.md README.md
+```
+
+Output:
+
+```text
+## write/silver...origin/write/silver
+oracle-java-silver/notes/fundamentals\03-operators-and-flow.md:16:```java
+oracle-java-silver/notes/fundamentals\03-operators-and-flow.md:24:```java
+oracle-java-silver/notes/fundamentals\03-operators-and-flow.md:57:### java 17 新语法
+oracle-java-silver/notes/fundamentals\03-operators-and-flow.md:61:```java
+oracle-java-silver/notes/fundamentals\02-data-types.md:18:```java
+oracle-java-silver/notes/fundamentals\02-data-types.md:23:    public static void main(String[] args) {
+oracle-java-silver/notes/fundamentals\02-data-types.md:37:```java
+oracle-java-silver/notes/fundamentals\02-data-types.md:65:```java
+oracle-java-silver/notes/fundamentals\02-data-types.md:119:```java
+oracle-java-silver/notes/fundamentals\02-data-types.md:131:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:24:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:36:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:49:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:55:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:64:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:78:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:119:```java
+oracle-java-silver/notes/fundamentals\01-java-basics.md:134:```java
+Exit code: 0
+```
+
+## 2026-07-07 21:48:00 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+Get-Content -Raw -Encoding UTF8 oracle-java-silver/README.md
+Get-Content -TotalCount 40 -Encoding UTF8 oracle-java-silver/notes/fundamentals/01-java-basics.md
+```
+
+Output:
+
+```text
+# Oracle Java Silver
+
+Oracle Java Silver study notes and reference material.
+
+## Notes
+
+### Fundamentals
+
+| No. | Topic | File |
+| --- | --- | --- |
+| 01 | Java Basics | [01-java-basics.md](./notes/fundamentals/01-java-basics.md) |
+| 02 | Data Types | [02-data-types.md](./notes/fundamentals/02-data-types.md) |
+| 03 | Operators and Flow | [03-operators-and-flow.md](./notes/fundamentals/03-operators-and-flow.md) |
+| 04 | Classes, Objects, and Methods | [04-classes-objects-methods.md](./notes/fundamentals/04-classes-objects-methods.md) |
+
+### Object-Oriented Programming
+
+| No. | Topic | File |
+| --- | --- | --- |
+| 05 | Encapsulation | [05-encapsulation.md](./notes/object-oriented/05-encapsulation.md) |
+| 06 | Inheritance | [06-inheritance.md](./notes/object-oriented/06-inheritance.md) |
+| 07 | Polymorphism | [07-polymorphism.md](./notes/object-oriented/07-polymorphism.md) |
+| 08 | Type Casting | [08-type-casting.md](./notes/object-oriented/08-type-casting.md) |
+| 09 | Abstract Classes | [09-abstract-classes.md](./notes/object-oriented/09-abstract-classes.md) |
+| 10 | Interfaces | [10-interfaces.md](./notes/object-oriented/10-interfaces.md) |
+| 11 | Overriding and Overloading | [11-overriding-overloading.md](./notes/object-oriented/11-overriding-overloading.md) |
+
+### Java 17
+
+| No. | Topic | File |
+| --- | --- | --- |
+| 12 | Java 17 Features | [12-java-17-features.md](./notes/java-17/12-java-17-features.md) |
+
+## Resources
+
+- [oracle-java-silver-reference.pdf](./resources/oracle-java-silver-reference.pdf)
+
+# Java Basics
+
+### Wrapper Class ラッパクラス
+
+| primitive | wrapper |
+| --- | --- |
+| `byte` | `Byte` |
+| `short` | `Short` |
+| `int` | `Integer` |
+| `long` | `Long` |
+| `float` | `Float` |
+| `double` | `Double` |
+| `char` | `Character` |
+| `boolean` | `Boolean` |
+
+> 自动装箱 autoboxing: `int` -> `Integer`。自动拆箱 unboxing: `Integer` -> `int`。
+
+
+### Serialization　シリアライゼーション
+
+> 将对象序列化，用于数据传输
+
+- `static`, `transient` 不会被序列化
+```java
+class User implements Serializable {
+    static String school = "ABC"; //static 属于类，不属于对象本身，所以不会作为对象状态被保存。
+    String name;
+    transient String password;
+}
+```
+
+- serialVersionUID
+
+用来判断“保存时的类”和“读取时的类”版本是否兼容。反序列化时会用它验证发送方和接收方加载的类是否兼容；如果不兼容抛出 `InvalidClassException`。
+
+```java
+
+private static final long serialVersionUID = 1L;
+```
+Exit code: 0
+```
+
+## 2026-07-07 21:48:54 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+Test-Path -LiteralPath "oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md"
+rg -n "Java の概要|main メソッド|javac|java -cp|package|import" oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md oracle-java-silver/README.md
+$linkIssues = @()
+Get-ChildItem -Path . -Filter README.md -Recurse | Where-Object { $_.FullName -notmatch '\\.git\\' } | ForEach-Object {
+    $readme = $_
+    $base = Split-Path -Parent $readme.FullName
+    $content = Get-Content -Raw -Encoding UTF8 -LiteralPath $readme.FullName
+    [regex]::Matches($content, '\[[^\]]+\]\(([^)]+)\)') | ForEach-Object {
+        $link = $_.Groups[1].Value
+        if ($link -match '^(https?:|#)') { return }
+        $target = $link -replace '^\./', ''
+        $full = Join-Path $base $target
+        if (-not (Test-Path -LiteralPath $full)) {
+            $linkIssues += "$(Resolve-Path -Relative $readme.FullName) -> $link"
+        }
+    }
+}
+if ($linkIssues.Count -eq 0) { 'No broken local README links found.' } else { $linkIssues }
+git status --short --branch
+```
+
+Output:
+
+```text
+True
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:3:Java の概要と簡単な Java プログラムの作成。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:5:## Java の概要
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:10:- JDK 包含开发工具，例如 `javac` 和 `java`。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:14:| `javac` | 编译 `.java` 源文件，生成 `.class` 文件 |
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:17:## main メソッド
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:60:### package なし
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:79:javac Hello.java
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:92:package 用来组织类，避免类名冲突。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:103:package com.example.app;
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:107:        System.out.println("package sample");
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:112:### package 宣言
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:114:- `package` 声明必须是源文件中第一条非注释语句。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:115:- 一个源文件最多只能有一个 `package` 声明。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:116:- package 名通常使用小写，并且和目录结构对应。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:121:javac -d out src/com/example/app/Main.java
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:124:执行 package 中的类：
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:127:java -cp out com.example.app.Main
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:130:> 有 package 时，运行时要写 fully qualified class name。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:132:## import
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:134:import 用来在当前文件中简化其他 package 下的类名。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:137:package com.example.app;
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:139:import java.util.ArrayList;
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:140:import java.util.List;
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:151:### import 的规则
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:153:- `import` 写在 `package` 声明之后，class 声明之前。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:154:- `java.lang` package 会自动导入，例如 `String`、`System`。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:155:- 同一个 package 中的类不需要 import。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:156:- `import java.util.*;` 只导入 `java.util` 下的类，不会导入子 package。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:157:- 不能 import default package 中的类。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:160:import java.util.*; // 可以使用 List、ArrayList
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:161:// import java.util.concurrent.*; // 子 package 需要单独 import
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:167:- 有 package 时，不能直接用 `java Main` 执行。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:168:- 编译 package 文件时建议使用 `javac -d out ...`，让编译器生成正确目录。
+oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md:169:- `package` 和 `import` 的顺序不能反。
+No broken local README links found.
+## write/silver...origin/write/silver
+ M log/command-log.md
+ M oracle-java-silver/README.md
+?? oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md
+Exit code: 0
+```
+
+## 2026-07-07 21:49:07 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git diff --check
+git status --short --branch
+```
+
+Output:
+
+```text
+## write/silver...origin/write/silver
+ M log/command-log.md
+ M oracle-java-silver/README.md
+?? oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md
+Exit code: 0
+```
+
+## 2026-07-07 21:52:32 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git status --short --branch
+Get-Content -Raw -Encoding UTF8 oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md
+```
+
+Output:
+
+```text
+## write/silver...origin/write/silver
+ M log/command-log.md
+ M oracle-java-silver/README.md
+?? oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md
+# Java Overview and Program Creation
+
+Java の概要と簡単な Java プログラムの作成。
+
+## Java の概要
+
+- Java 是面向对象语言，主要通过 class 来组织程序。
+- Java 源文件扩展名是 `.java`，编译后生成 `.class` 字节码。
+- `.class` 文件由 JVM 执行，因此 Java 程序可以在不同平台上运行。
+- JDK 包含开发工具，例如 `javac` 和 `java`。
+
+| 工具 | 作用 |
+| --- | --- |
+| `javac` | 编译 `.java` 源文件，生成 `.class` 文件 |
+| `java` | 启动 JVM，执行 class |
+
+## main メソッド
+
+main 方法是普通 Java 应用程序的入口。
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello Java");
+    }
+}
+```
+
+### main 方法的规则
+
+- 必须是 `public`，JVM 才能从类外调用。
+- 必须是 `static`，JVM 不需要先创建对象就能调用。
+- 返回值必须是 `void`。
+- 方法名必须是 `main`。
+- 参数可以写成 `String[] args` 或 `String... args`。
+- `args` 只是变量名，可以换成其他名字。
+
+```java
+public static void main(String... values) {
+    System.out.println(values.length);
+}
+```
+
+> 可以重载 main 方法，但 JVM 只会寻找标准入口方法。
+
+```java
+public class MainSample {
+    public static void main(String[] args) {
+        System.out.println("entry point");
+    }
+
+    public static void main(int value) {
+        System.out.println("overload");
+    }
+}
+```
+
+## コンパイルと実行
+
+### package なし
+
+文件名需要和 `public class` 名一致。
+
+```text
+Hello.java
+```
+
+```java
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello Java");
+    }
+}
+```
+
+编译：
+
+```powershell
+javac Hello.java
+```
+
+执行：
+
+```powershell
+java Hello
+```
+
+> 执行时写 class 名，不写 `.class`。
+
+## パッケージの使用
+
+package 用来组织类，避免类名冲突。
+
+```text
+src/
+  com/
+    example/
+      app/
+        Main.java
+```
+
+```java
+package com.example.app;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("package sample");
+    }
+}
+```
+
+### package 宣言
+
+- `package` 声明必须是源文件中第一条非注释语句。
+- 一个源文件最多只能有一个 `package` 声明。
+- package 名通常使用小写，并且和目录结构对应。
+
+编译到 `out` 目录：
+
+```powershell
+javac -d out src/com/example/app/Main.java
+```
+
+执行 package 中的类：
+
+```powershell
+java -cp out com.example.app.Main
+```
+
+> 有 package 时，运行时要写 fully qualified class name。
+
+## import
+
+import 用来在当前文件中简化其他 package 下的类名。
+
+```java
+package com.example.app;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Java");
+        System.out.println(names);
+    }
+}
+```
+
+### import 的规则
+
+- `import` 写在 `package` 声明之后，class 声明之前。
+- `java.lang` package 会自动导入，例如 `String`、`System`。
+- 同一个 package 中的类不需要 import。
+- `import java.util.*;` 只导入 `java.util` 下的类，不会导入子 package。
+- 不能 import default package 中的类。
+
+```java
+import java.util.*; // 可以使用 List、ArrayList
+// import java.util.concurrent.*; // 子 package 需要单独 import
+```
+
+## 常见错误
+
+- `public class Hello` 必须放在 `Hello.java` 中。
+- 有 package 时，不能直接用 `java Main` 执行。
+- 编译 package 文件时建议使用 `javac -d out ...`，让编译器生成正确目录。
+- `package` 和 `import` 的顺序不能反。
+Exit code: 0
+```
+
+## 2026-07-07 21:53:23 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+Test-Path -LiteralPath "oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md"
+Test-Path -LiteralPath "oracle-java-silver/notes/fundamentals/00-java-overview-and-program-creation.md"
+rg -n "易错点|main メソッド|javac|java -cp|package 宣言|import|命令行参数" oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md oracle-java-silver/README.md
+$linkIssues = @()
+Get-ChildItem -Path . -Filter README.md -Recurse | Where-Object { $_.FullName -notmatch '\\.git\\' } | ForEach-Object {
+    $readme = $_
+    $base = Split-Path -Parent $readme.FullName
+    $content = Get-Content -Raw -Encoding UTF8 -LiteralPath $readme.FullName
+    [regex]::Matches($content, '\[[^\]]+\]\(([^)]+)\)') | ForEach-Object {
+        $link = $_.Groups[1].Value
+        if ($link -match '^(https?:|#)') { return }
+        $target = $link -replace '^\./', ''
+        $full = Join-Path $base $target
+        if (-not (Test-Path -LiteralPath $full)) {
+            $linkIssues += "$(Resolve-Path -Relative $readme.FullName) -> $link"
+        }
+    }
+}
+if ($linkIssues.Count -eq 0) { 'No broken local README links found.' } else { $linkIssues }
+git diff --check
+git status --short --branch
+```
+
+Output:
+
+```text
+True
+False
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:3:Java の概要、実行可能な Java プログラム、コンパイルと実行、package/import の易错点总结。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:5:## main メソッド
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:16:易错点：
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:60:易错点：
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:72:javac Hello.java
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:76:易错点：
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:78:- `javac` 编译源文件时写 `.java`。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:83:## package 宣言
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:94:易错点：
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:100:- default package 中的类不能被其他 package 的类 import。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:113:javac -d out src/com/example/app/Main.java
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:114:java -cp out com.example.app.Main
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:117:易错点：
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:121:- `javac -d out` 会按 package 生成目录。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:124:## import
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:126:### package / import / class 的顺序
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:131:import java.util.ArrayList;
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:132:import java.util.List;
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:138:易错点：
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:140:- 顺序必须是 `package` -> `import` -> `class`。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:141:- `import` 只能写在 class 声明之前。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:143:- 同一个 package 中的类不需要 import。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:144:- `import java.util.*;` 不会导入 `java.util.concurrent`。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:145:- wildcard import 不会导入子 package。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:148:import java.util.*;            // List, ArrayList
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:149:import java.util.concurrent.*; // 子 package 需要单独 import
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:154:如果两个 package 中有同名类，不能同时用普通 import 简化成同一个简单类名。
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:157:import java.sql.Date;
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:158:// import java.util.Date; // 和 java.sql.Date 简名冲突
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:166:## 命令行参数
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:181:易错点：
+oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md:183:- 命令行参数从 `args[0]` 开始。
+No broken local README links found.
+## write/silver...origin/write/silver
+ M log/command-log.md
+ M oracle-java-silver/README.md
+?? oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md
+Exit code: 0
+```
+
+## 2026-07-07 21:54:43 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git branch --show-current
+```
+
+Output:
+
+```text
+write/silver
+Exit code: 0
+```
+
+## 2026-07-07 21:54:43 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git status --short --branch
+```
+
+Output:
+
+```text
+## write/silver...origin/write/silver
+ M log/command-log.md
+ M oracle-java-silver/README.md
+?? oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md
+Exit code: 0
+```
+
+## 2026-07-07 21:55:18 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git branch --show-current
+```
+
+Output:
+
+```text
+write/silver
+Exit code: 0
+```
+
+## 2026-07-07 21:55:18 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git status --short --branch
+```
+
+Output:
+
+```text
+## write/silver...origin/write/silver
+ M log/command-log.md
+ M oracle-java-silver/README.md
+?? oracle-java-silver/notes/fundamentals/00-java-se-common-pitfalls.md
+Exit code: 0
+```
+
+## 2026-07-07 21:55:18 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git diff --check
+```
+
+Output:
+
+```text
+warning: in the working copy of 'log/command-log.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'oracle-java-silver/README.md', LF will be replaced by CRLF the next time Git touches it
+Exit code: 0
+```
+
+## 2026-07-07 21:55:18 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git add -A
+```
+
+Output:
+
+```text
+<staged current working tree, including this command log entry>
+Exit code: 0
+```
+
+## 2026-07-07 21:55:18 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git commit -m "Add Java SE common pitfalls note"
+```
+
+Output:
+
+```text
+<commit output captured by terminal; command pre-recorded to avoid leaving post-commit log changes>
+Exit code: 0
+```
+
+## 2026-07-07 21:55:18 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git push origin write/silver
+```
+
+Output:
+
+```text
+<push output captured by terminal; command pre-recorded before commit so remote receives the log entry>
+Exit code: 0
+```
+
