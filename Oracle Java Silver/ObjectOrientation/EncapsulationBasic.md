@@ -12,6 +12,7 @@ Encapsulation 封装
 ### getter暴露私有成员变量 
 
 ### setter控制实例化的成员变量值
+
 ```Java
 private String gender;
 

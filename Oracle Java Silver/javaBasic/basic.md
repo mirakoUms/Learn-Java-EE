@@ -95,6 +95,47 @@ final Class foo() {
 final Class foo2 extends foo() {
     // error: final Class cant not be extended
 }
+```
 
-## 不可变类
+### intern
 
+> Java 为了节省内存，相同的字符串字面量只保存一份
+```Java
+String a = "Java";
+String b = "Java";
+```
+          String Pool
+      +-------------+
+      |   "Java"    |
+      +-------------+
+          ▲      ▲
+          │      │
+          a      b
+
+所以 a == b
+
+> new String 
+```Java
+String a = new String("Java");
+```
+            Heap
+         +-----------+
+    a -> | "Java"    |
+         +-----------+
+
+          String Pool
+         +-----------+
+         | "Java"    |
+         +-----------+
+
+> intern()
+```Java
+String a = new String("Java");
+a.intern();
+```
+- 去 String Pool 找有没有内容相同的字符串。
+    - 有 → 返回 Pool 中那个对象。
+    - 没有 → 把当前字符串加入 Pool，再返回 Pool 中的对象。
+
+
+### a
