@@ -1896,3 +1896,72 @@ Output:
 Exit code: 0
 ```
 
+## 2026-07-07 21:40:22 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git branch --show-current
+```
+
+Output:
+
+```text
+write/silver
+Exit code: 0
+```
+
+## 2026-07-07 21:40:22 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git status --short --branch
+```
+
+Output:
+
+```text
+## write/silver...origin/write/silver [ahead 1]
+ M log/command-log.md
+Exit code: 0
+```
+
+## 2026-07-07 21:40:22 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git log -1 --oneline
+```
+
+Output:
+
+```text
+477c122 Organize Java Silver study notes
+Exit code: 0
+```
+
+## 2026-07-07 21:40:22 +09:00
+
+Working directory: `C:\documents\project\java certification\oracle java se\Learn-Java-EE`
+
+Command:
+
+```powershell
+git add -A
+```
+
+Output:
+
+```text
+<no output; stages command log entries before push>
+Exit code: 0
+```
+
