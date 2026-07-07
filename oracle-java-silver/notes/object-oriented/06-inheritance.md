@@ -1,8 +1,12 @@
-# 继承 (Inheritance)：允许子类继承父类的属性和方法，建立 is-a（是什么）的关系。这极大地提高了代码的复用性，并支持基类的行为扩展。
+# Inheritance 继承
+
+> 继承允许子类继承父类的属性和方法，建立 is-a 关系。
 
 ## 只允许单类继承
 
-Class Dog extends Animal, Mammal {} // 则会报错
+```java
+class Dog extends Animal, Mammal {} // Error: Java class 只允许单继承
+```
 
 ## 所有类都继承自Object
 
@@ -14,7 +18,7 @@ Class Dog extends Animal, Mammal {} // 则会报错
 
 ## 父类没有无参构造器时，子类的声明必须指定存在的父类构造器
 
-```Java
+```java
 class Animal {
     Animal(String name) {
         System.out.println("init");
@@ -31,9 +35,13 @@ class Dog extends Animal {
 
 ## super关键字 可以访问父类成员 或者构造器
 
-```Java
+```java
 class Parent {
     String name = "Parent";
+
+    Parent() {
+        System.out.println("Parent constructor");
+    }
 
     void print() {
         System.out.println("Parent method");
@@ -43,11 +51,14 @@ class Parent {
 class Child extends Parent {
     String name = "Child";
 
+    Child() {
+        super(); // 调用父类无参构造器，必须是构造器第一条语句
+    }
+
     void test() {
-        super(); // 调用父类无参构造放大
         System.out.println(name);
         System.out.println(super.name);
-        super.print(); // 调用成员package private方法 但是无法访问private方法
+        super.print(); // 调用父类成员方法，但是无法访问 private 方法
     }
 }
 
@@ -67,14 +78,16 @@ public class Main {
 
 ## 父类引用可以指向子类对象 但无法使用子类定义的新方法
 
+```java
 Parent p = new Child(); // Correct
-p.cry();                // Error, cry对于Child是新方法 而引用p指向的对象中没有这个方法
+p.cry();                // Error: 编译时只看 Parent 类型中有没有 cry()
+```
 
 
 ## 继承和初始化顺序
 
 > static init:
-```Java
+```java
 class Room {
     static {
         System.out.println("Static init");
@@ -82,13 +95,13 @@ class Room {
 }
 ```
 > init
-```Java
+```java
 class Room {
     {
-        System.out.println("Static init");
+        System.out.println("Instance init");
     }
 }
 ```
 
 - 父类static -> 子类static -> 父类init -> 父类constructor -> 子类init -> 子类constructor 
-- static代码块在一次执行者仅执行一次
+- static代码块在类第一次被使用时执行一次

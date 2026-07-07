@@ -1,16 +1,15 @@
+# Overriding and Overloading
 
 ## 重载调用的优先级
 
-- 完全一致
+| 优先级 | 规则 | 示例 |
+| --- | --- | --- |
+| 1 | 完全一致 | `int` 匹配 `int` |
+| 2 | 范围扩展 widening | `int` -> `long` |
+| 3 | 装箱 boxing | `int` -> `Integer` |
+| 4 | 可变参数 varargs | `int...` |
 
-- 范围扩展
-如int和long
-
-- 装箱
-如long和Integer
-
-- 不固定参数个数
-如Integer和int...
+> 范围扩展优先于装箱，可变参数优先级最低。
 
 ## 关于null
 
@@ -38,3 +37,10 @@
     - 可以抛出更窄的 checked exception
     - 可以不抛出
     - RuntimeException 不受这个限制
+
+## 重写规则
+
+- 方法名和参数列表必须相同。
+- 返回类型必须相同，或者是协变返回类型 covariant return type。
+- 访问权限不能比父类方法更窄。
+- `private`、`final`、`static` 方法不能被真正重写。

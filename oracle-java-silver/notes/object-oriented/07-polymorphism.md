@@ -1,14 +1,16 @@
-# 父类引用 指向子类对象
+# Polymorphism 多态
 
 > 编译时看引用类型 运行时看实际类型
 
-> Parent p = new child();
+```java
+Parent p = new Child();
+```
 
 ## 适用范围
 
 > 实例方法的重写
 
-```Java
+```java
 class Animal {
     String name = "animal";
 
@@ -25,13 +27,13 @@ class Dog extends Animal {
 }
 Animal a = new Dog();
 
-System.out.println(a.name);// 字段没有多态，运行时看引用类型因此输出Animal
-a.print();                  // Dog重写了Animal的print方法 看实际类型输出 Dog Method
+System.out.println(a.name); // 字段没有多态，编译时看引用类型，因此输出 animal
+a.print();                  // Dog重写了Animal的print方法，看实际类型输出 Dog method
 ```
 
 ## 多态的用法
 
-```Java
+```java
 class Animal {
     void speak() {
         System.out.println("animal");

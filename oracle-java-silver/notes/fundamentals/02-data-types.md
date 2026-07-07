@@ -1,3 +1,5 @@
+# Data Types
+
 ## 变量 variable
 
 - int a = 12;    // 十进制 12
@@ -11,7 +13,6 @@
 | ---------------------- | --------------- | --------- |
 | 实例变量 instance variable | 类中，方法外，非 static | 有默认值      |
 | 静态变量 static variable   | 类中，方法外，static   | 有默认值      |
-
 | 局部变量 local variable    | 方法内部            | **没有默认值** |
 
 ```java
@@ -49,7 +50,7 @@ System.out.println(a.replaceAll("t","a")); // aesa
 
 ### 字符串字面量会进入 String Pool。
 
-```
+```java
 String a = "Java";
 String b = "Java";
 
@@ -59,22 +60,22 @@ System.out.println(a.equals(b)); // true
 
 ## Array
 
-### Declearation
+### Declaration
 
 ```java
 String[] a = new String[3];
 String b[] = new String[3];
 
-// Declear and Assign value
+// Declare and assign value
 String c[] = {"1", "2", "3"};
 String[] d = {"1", "2"};
 String e[] = new String[]{"1", "2", "3"};
 String[] f = new String[]{"1", "2"};
 
-//Error 
+// Error
 String[] g;
-g = {"1"}; //Error
-g = new String[]{"1"};//Correct
+g = {"1"}; // Error
+g = new String[]{"1"}; // Correct
 ```
 ### 长度固定 
 
@@ -85,16 +86,23 @@ g = new String[]{"1"};//Correct
 
 ### remove
 
-> 有两种删除方法 根据下表int以及根据对象Object
+> 有两种删除方法：根据下标 `remove(int index)`，以及根据对象 `remove(Object o)`。
 
-会删除第一个匹配的Object
+```java
+ArrayList<Integer> list = new ArrayList<>(List.of(1, 2, 3));
+
+list.remove(1);                  // 删除 index 1，也就是元素 2
+list.remove(Integer.valueOf(1)); // 删除对象 1
+```
+
+`remove(Object o)` 会删除第一个匹配的对象。
 
 
 ## StringBuilder
 
 ### property
 
-线程不安全，可变, 非synchronize 常用单线程字符串拼接
+线程不安全、可变、非 synchronized，常用于单线程字符串拼接。
 
 ### capacity 
 
@@ -108,7 +116,7 @@ g = new String[]{"1"};//Correct
 
 ## Text Block 三个双引号
 
-```Java
+```java
 String html = """
               <html>
                 <body>
@@ -120,6 +128,6 @@ String html = """
 
 > Text Block 的开始 """ 后面必须换行。
 
-```Java
-String masion = """ foo """; //Error: 
+```java
+String message = """ foo """; // Error: opening delimiter 后面必须换行
 ```
