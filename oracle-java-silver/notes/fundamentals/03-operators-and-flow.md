@@ -56,7 +56,6 @@ if (value instanceof String text) {
 
 ### java 17 新语法
 
-- 执行多行最后用`yield`返回数据
 - 不会fall through， 但可以多个情况放在一起处理
 ```java
 int x = switch (1) {
@@ -64,4 +63,25 @@ int x = switch (1) {
     case 4, 5 -> 2;
     default -> 3;
 };
+```
+- 当 case 里面不是简单一行，而是有多行处理逻辑时，需要用 yield 返回结果。
+
+```Java
+int num = 1;
+
+String result = switch (num) {
+    case 1 -> {
+        System.out.println("处理 case 1");
+        yield "one";
+    }
+    case 2 -> {
+        System.out.println("处理 case 2");
+        yield "two";
+    }
+    default -> {
+        yield "other";
+    }
+};
+
+System.out.println(result);
 ```

@@ -56,9 +56,9 @@ class Child extends Parent {
     }
 
     void test() {
+        super.print(); // 调用父类成员方法，但是无法访问 private 方法
         System.out.println(name);
         System.out.println(super.name);
-        super.print(); // 调用父类成员方法，但是无法访问 private 方法
     }
 }
 
