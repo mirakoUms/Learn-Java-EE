@@ -81,6 +81,25 @@ g = new String[]{"1"}; // Correct
 
 超出长度报下标错误 `ArrayIndexOutOfBoundsException`
 
+### 二维数组初始化
+
+> 数组创建时，如果不用 {} 初始化器，第一维长度必须指定。
+
+- 初始化创建
+
+```Java
+// 大括号初始化器
+String i[][] = new String[][]{{"1", "2"}};
+// 简略：String i[][] = {{"1", "2"}};
+String[][] j = new String[][]{{"1", "2"}};
+// 简略：String[][] j = {{"1", "2"}};
+
+// 或者正常创建
+String l[][] = new String[2][]; // 必须明确维度 dimension 
+l[0] = new String[]{"1"};
+l[1] = new String[]{"1", "3"};
+l[2] = new String[]{"1", "3"}; // 执行错误 
+```
 
 ## ArrayList
 
@@ -131,3 +150,18 @@ String html = """
 ```java
 String message = """ foo """; // Error: opening delimiter 后面必须换行
 ```
+
+## var
+
+> Java 10 的新功能
+
+- 使用必须初始化
+
+- 不可以同时声明 
+
+```Java
+var v1, v2 = 100;//'var' is not allowed in a compound declaration
+var v1 = 10, v2 = 20; //'var' is not allowed in a compound declaration
+```
+
+- var 根据接受数据的object自动判断类型 所以不能 `var v1 = null`

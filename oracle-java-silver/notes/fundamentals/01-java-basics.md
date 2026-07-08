@@ -152,3 +152,23 @@ String b = a.intern();
 - 去 String Pool 找有没有内容相同的字符串。
     - 有 -> 返回 Pool 中那个对象。
     - 没有 -> 把当前字符串加入 Pool，再返回 Pool 中的对象。
+    
+### 工具
+
+| 工具       | is a                        | 主要用途                           |
+| -------- | ---------------------------- | ------------------------------ |
+| `jdeps`  | dependency analyzer          | 分析 `.class` / `.jar` 依赖了哪些包或模块 |
+| `jlink`  | custom runtime image builder | 根据模块创建“精简版 Java 运行环境”          |
+| `javap`  | class file disassembler      | 反编译查看 `.class` 的结构或字节码         |
+| `jshell` | Java REPL                    | 交互式执行 Java 代码片段                |
+
+### 数值literal
+
+> Java 的 数值 literal（数値リテラル） 中可以使用下划线 _，主要目的是 提高可读性。
+
+- 不能放在
+    - 开头
+    - 结尾
+    - 小数点旁边
+    - 进制前缀旁边
+    - 类型后缀旁边
