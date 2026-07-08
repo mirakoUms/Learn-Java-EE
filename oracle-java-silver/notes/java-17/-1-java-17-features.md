@@ -192,3 +192,13 @@ record User(String name) {
 sealed interface Flyable permits Bird { }
 record Bird(String name) implements Flyable { } // record 隐式 final，适合作为 sealed 类型的 permitted subclass。
 ```
+
+##
+
+##
+
+##
+
+##
+
+##
