@@ -18,6 +18,16 @@ java.lang.Throwable
 | `Exception` 但不是 `RuntimeException` 子类 | チェック例外  | 必须 `try-catch` 或 `throws` | `IOException`          |
 
 
+## Throwable提供的方法
+
+- getMessage() 取得异常对象里的详细消息。
+
+- printStackTrace() 打印异常发生的位置，也就是堆栈信息。
+
+- getCause() 取得异常原因
+
+
+
 ## Compile例外检查
 
 > 只要代码中可能抛出 checked exception，就必须进行处理
