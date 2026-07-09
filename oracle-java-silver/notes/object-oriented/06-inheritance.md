@@ -105,3 +105,29 @@ class Room {
 
 - 父类static -> 子类static -> 父类init -> 父类constructor -> 子类init -> 子类constructor 
 - static代码块在类第一次被使用时执行一次
+
+
+## 实例方法的隐藏与重写
+
+- 可以通过static隐藏方法，但是不能隐藏实例方法
+```Java
+class Parent {
+    void func() {}
+}
+
+class Child {
+    static void func() {} // Compile Error: This static method cannot hide the instance method from Parent
+}
+```
+
+- 反过来不可以定义父类已经存在的static为实例方法
+
+```Java
+class Parent {
+    static void func() {}
+}
+
+class Child {
+    void func() {} // Compile Error: This instance method cannot override the static method from Parent
+}
+```
