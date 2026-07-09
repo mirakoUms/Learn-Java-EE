@@ -1,5 +1,24 @@
 # Polymorphism 多态
 
+> 成员变量不参与多态
+
+```Java
+class Parent {
+    int name = "p";
+}
+
+class Child extends Parent {
+    int name = "c";
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        System.out.println(p.name);
+    }
+}
+```
+
 > 编译时看引用类型 运行时看实际类型
 
 ```java
