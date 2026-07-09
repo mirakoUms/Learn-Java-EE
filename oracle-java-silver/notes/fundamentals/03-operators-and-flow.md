@@ -43,6 +43,11 @@ if (value instanceof String text) {
 }
 ```
 
+- 陷阱题
+```Java
+if (obj instanceof String s || s.length()) //编译错误
+if (obj instanceof String s && s.length())
+```
 
 ## Switch
 

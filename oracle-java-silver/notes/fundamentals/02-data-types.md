@@ -165,3 +165,9 @@ var v1 = 10, v2 = 20; //'var' is not allowed in a compound declaration
 ```
 
 - var 根据接受数据的object自动判断类型 所以不能 `var v1 = null`
+
+- var 不能接收数组的简写形式
+```Java
+var arr = {1, 2, 3}; // Compile error: Array initializer needs an explicit target-type
+var arr = new int[]{1, 2, 3}; //正确
+```

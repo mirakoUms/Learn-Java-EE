@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:1Z0-825-JPN:Java SE 17 Programmer I
+TIME:90 minutes
+DTSTART:20260726T020000Z
+DTEND:20260726T033000Z
+DESCRIPTION:横浜テストセンター1\n220-0004 神奈川県 横浜市西区 横浜市西区北幸1-11-11 NMF横浜西口ビル9階 株式会社ブレイクスルー 日本\n受験予約: 2026年7月26日 開始時間：11:00 Asia/Tokyo - JST\nテストセンター情報: https://wsr.pearsonvue.com/testtaker/registration/TestCenterDirections.htm?testCenterId=67346&clientCode=ORACLE
+
+LOCATION:220-0004 神奈川県 横浜市西区 横浜市西区北幸1-11-11 NMF横浜西口ビル9階 株式会社ブレイクスルー 日本
+END:VEVENT
+END:VCALENDAR

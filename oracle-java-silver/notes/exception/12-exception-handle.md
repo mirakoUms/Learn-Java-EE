@@ -211,6 +211,30 @@ try (R r1 = new R("1"); R r2 = new R("2")) {
 }
 ```
 
+### 异常处理
+
+```Java
+class Resource implements AutoCloseable {
+    public void close() throws Exception {
+        throw new Exception("close");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try (Resource r = new Resource()) {
+            throw new Exception("try");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(e.getSuppressed().length);
+        }
+    }
+}
+```
+
+- getSuppressed() 取得被压制的Exception数组
+
+
 ## 与类的继承组合出题
 
 > 只对checked Exception：子类重写方法不能比父类方法抛出更宽泛的 checked exception。可以抛出一样，更具体的例外 也可以不抛出例外

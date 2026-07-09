@@ -143,6 +143,40 @@ final class Person extends java.lang.Record {
 }
 ```
 
+### compact constructor
+
+> 为了简化构造器
+
+```Java
+class User {
+    // 字段
+    User(String name, String psw) {
+        this.name = name;
+        this.psw = psw;
+    }
+}
+
+// 新写法
+
+record User(String name, String psw) {
+    User {
+        // 直接写赋值逻辑如‘
+        if (psw.length() < 6) {
+            // handle
+        }
+    }
+}
+
+- 不能在 compact constructor 里手动给字段赋值
+
+```Java
+this.name = "name";
+```
+
+- compact constructor 结束时，编译器会自动执行字段赋值。
+
+```
+
 
 ### 继承限制
 
