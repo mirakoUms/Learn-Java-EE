@@ -25,22 +25,31 @@
 
 ## 是重写还是重载
 - 重载先在编译期决定
+
 - 重写再在运行期决定
 
 - 重载看引用类型 
+
 - 重写看实际对象
 
 ## 和异常
 
 - 重写时
+
     - 不能抛出更宽的 checked exception
+
     - 可以抛出更窄的 checked exception
+
     - 可以不抛出
+
     - RuntimeException 不受这个限制
 
 ## 重写规则
 
 - 方法名和参数列表必须相同。
+
 - 返回类型必须相同，或者是协变返回类型 covariant return type。
+
 - 访问权限不能比父类方法更窄。
+
 - `private`、`final`、`static` 方法不能被真正重写。

@@ -5,7 +5,6 @@ Java and cloud certification study notes.
 ## Sections
 
 - [Oracle Java Silver](./oracle-java-silver/) - Java Silver notes and reference PDF.
-- [AWS SAA](./aws-saa/) - AWS SAA-C03 reference material.
 
 ## Organization
 

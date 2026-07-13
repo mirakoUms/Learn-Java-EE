@@ -80,22 +80,14 @@ non-sealed class Dog {
 > interface 不能是 final，但可以是 sealed，用于限制子接口或实现类。
 
 ```java
-sealed interface Flyable permits Furthered, Bird {
-}
+sealed interface Flyable permits Furthered, Bird { }
+
 // 限制子类接口 此时不能是final 只能是sealed或non-sealed
-non-sealed interface Furthered extends Flyable {
-}
-// 限制实现类 此时可以用final sealed 或者 non-sealed修饰
-final class Bird implements Flyable {
-}
+non-sealed interface Furthered extends Flyable { }
+
+// 限制实现类 此时可以用final sealed 或者 non-sealed(也可以用record)修饰
+final class Bird implements Flyable { }
 ```
-
-
-
-
-
-
-
 
 
 ## record java17
@@ -157,10 +149,9 @@ class User {
 }
 
 // 新写法
-
 record User(String name, String psw) {
     User {
-        // 直接写赋值逻辑如‘
+        // 直接写赋值逻辑如
         if (psw.length() < 6) {
             // handle
         }
@@ -174,9 +165,6 @@ this.name = "name";
 ```
 
 - compact constructor 结束时，编译器会自动执行字段赋值。
-
-```
-
 
 ### 继承限制
 

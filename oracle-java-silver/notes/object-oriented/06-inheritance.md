@@ -11,9 +11,13 @@ class Dog extends Animal, Mammal {} // Error: Java class 只允许单继承
 ## 所有类都继承自Object
 
 - 所以都可以用以下Object的方法 即使没有重写
+
     - toString()
+
     - equals()
+
     - hashCode()
+
     - getClass()
 
 ## 父类没有无参构造器时，子类的声明必须指定存在的父类构造器
@@ -72,8 +76,11 @@ public class Main {
 ## private 方法无法被override
 
 ## final class无法被继承
+
 - final class：类不能被继承
+
 - final method：方法不能被重写
+
 - final variable：变量不能再次赋值
 
 ## 父类引用可以指向子类对象 但无法使用子类定义的新方法
@@ -87,6 +94,7 @@ p.cry();                // Error: 编译时只看 Parent 类型中有没有 cry(
 ## 继承和初始化顺序
 
 > static init:
+
 ```java
 class Room {
     static {
@@ -95,6 +103,7 @@ class Room {
 }
 ```
 > init
+
 ```java
 class Room {
     {
@@ -104,12 +113,14 @@ class Room {
 ```
 
 - 父类static -> 子类static -> 父类init -> 父类constructor -> 子类init -> 子类constructor 
+
 - static代码块在类第一次被使用时执行一次
 
 
 ## 实例方法的隐藏与重写
 
 - 可以通过static隐藏方法，但是不能隐藏实例方法
+
 ```Java
 class Parent {
     void func() {}

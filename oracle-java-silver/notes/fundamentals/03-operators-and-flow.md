@@ -6,8 +6,11 @@
 ### 可以进行逻辑运算与位运算
 
 - ^ 异或 排他逻辑或
+
 - & 按位与
+
 - | 按位或
+
 - ~ 按位取反 计算公式`~x == -x - 1`
 
 > &和|的逻辑运算不会短路
@@ -60,7 +63,9 @@ if (obj instanceof String s && s.length())
 ### 支持的数据类型
 
 - `byte`、`short`、`char`、`int` 以及对应包装类
+
 - String
+
 - 枚举 enum
 
 > 不支持 `long`、`float`、`double`、`boolean`。

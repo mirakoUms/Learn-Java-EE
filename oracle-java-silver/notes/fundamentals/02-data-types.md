@@ -3,8 +3,11 @@
 ## 变量 variable
 
 - int a = 12;    // 十进制 12
+
 - int b = 012;   // 八进制 10
+
 - int c = 0b1010; // 二进制 10
+
 - int d = 0xA;   // 十六进制 10
 
 ### 作用域
@@ -47,7 +50,6 @@ System.out.println(a.replaceAll("t","a")); // aesa
 
 而StringBuilder是可变的mutable
 
-
 ### 字符串字面量会进入 String Pool。
 
 ```java
@@ -77,6 +79,7 @@ String[] g;
 g = {"1"}; // Error
 g = new String[]{"1"}; // Correct
 ```
+
 ### 长度固定 
 
 超出长度报下标错误 `ArrayIndexOutOfBoundsException`
@@ -116,7 +119,6 @@ list.remove(Integer.valueOf(1)); // 删除对象 1
 
 `remove(Object o)` 会删除第一个匹配的对象。
 
-
 ## StringBuilder
 
 ### property
@@ -126,7 +128,6 @@ list.remove(Integer.valueOf(1)); // 删除对象 1
 ### capacity 
 
 默认16 首次扩容为2 * N + 2 第二次直接扩容到字符串长度
-
 
 ## StringBuffer
 
@@ -167,6 +168,7 @@ var v1 = 10, v2 = 20; //'var' is not allowed in a compound declaration
 - var 根据接受数据的object自动判断类型 所以不能 `var v1 = null`
 
 - var 不能接收数组的简写形式
+
 ```Java
 var arr = {1, 2, 3}; // Compile error: Array initializer needs an explicit target-type
 var arr = new int[]{1, 2, 3}; //正确

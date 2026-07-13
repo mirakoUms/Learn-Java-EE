@@ -16,10 +16,15 @@ public static void main(String[] args) {
 易错点：
 
 - `public` 不能省略，否则 JVM 无法从类外调用。
+
 - `static` 不能省略，否则 JVM 不能不创建对象就调用。
+
 - 返回值必须是 `void`。
+
 - 方法名必须小写 `main`。
+
 - 参数可以是 `String[] args` 或 `String... args`。
+
 - `args` 只是变量名，可以改名。
 
 ```java
@@ -60,8 +65,11 @@ public class Hello {
 易错点：
 
 - 一个 `.java` 文件中最多只能有一个 `public` 顶级类。
+
 - 如果有 `public class Hello`，文件名必须是 `Hello.java`。
+
 - 没有 `public` 顶级类时，文件名不一定要和类名一致。
+
 - Java 区分大小写，`Hello.java` 和 `hello.java` 不是同一个名字。
 
 ## コンパイルと実行
@@ -76,8 +84,11 @@ java Hello
 易错点：
 
 - `javac` 编译源文件时写 `.java`。
+
 - `java` 执行 class 时不写 `.class`。
+
 - `java Hello.class` 是错误写法。
+
 - 当前目录需要能找到编译后的 `Hello.class`。
 
 ## package 宣言
@@ -94,9 +105,13 @@ public class Main {
 易错点：
 
 - `package` 必须是第一条非注释语句。
+
 - 一个源文件最多只能有一个 `package` 声明。
+
 - package 名通常全小写。
+
 - package 名应该和目录结构对应。
+
 - default package 中的类不能被其他 package 的类 import。
 
 ### 有 package 时的编译和执行
@@ -117,8 +132,11 @@ java -cp out com.example.app.Main
 易错点：
 
 - 有 package 时，执行要写 fully qualified class name。
+
 - `java Main` 找不到 `com.example.app.Main`。
+
 - `javac -d out` 会按 package 生成目录。
+
 - `-cp out` 告诉 JVM 从 `out` 目录开始找 class。
 
 ## import
@@ -138,10 +156,15 @@ public class Main {
 易错点：
 
 - 顺序必须是 `package` -> `import` -> `class`。
+
 - `import` 只能写在 class 声明之前。
+
 - `java.lang` 自动导入，例如 `String`、`System`。
+
 - 同一个 package 中的类不需要 import。
+
 - `import java.util.*;` 不会导入 `java.util.concurrent`。
+
 - wildcard import 不会导入子 package。
 
 ```java
@@ -181,5 +204,7 @@ public class Main {
 易错点：
 
 - 命令行参数从 `args[0]` 开始。
+
 - 参数之间用空格分隔。
+
 - 没有参数时 `args.length == 0`，不是 `args == null`。

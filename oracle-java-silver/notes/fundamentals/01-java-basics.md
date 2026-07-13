@@ -21,6 +21,7 @@
 > 将对象序列化，用于数据传输
 
 - `static`, `transient` 不会被序列化
+
 ```java
 class User implements Serializable {
     static String school = "ABC"; //static 属于类，不属于对象本身，所以不会作为对象状态被保存。
@@ -90,7 +91,9 @@ switch (x) {
 ### final
 
 - `final` 变量只能赋值一次。
+
 - `final` 方法不能被重写。
+
 - `final` 类不能被继承。
 
 ```java
@@ -131,6 +134,7 @@ String b = "Java";
 所以 a == b
 
 > new String 
+
 ```java
 String a = new String("Java");
 ```
@@ -145,12 +149,15 @@ String a = new String("Java");
          +-----------+
 
 > intern()
+
 ```java
 String a = new String("Java");
 String b = a.intern();
 ```
 - 去 String Pool 找有没有内容相同的字符串。
+
     - 有 -> 返回 Pool 中那个对象。
+
     - 没有 -> 把当前字符串加入 Pool，再返回 Pool 中的对象。
     
 ### 工具
@@ -164,11 +171,16 @@ String b = a.intern();
 
 ### 数值literal
 
-> Java 的 数值 literal（数値リテラル） 中可以使用下划线 _，主要目的是 提高可读性。
+> Java 的 数值 literal（数値リテラル） 中可以使用下划线 _，主要目的是提高可读性。注意:Underscores have to be located within digits
 
-- 不能放在
+- 不能放在:
+
     - 开头
+
     - 结尾
+
     - 小数点旁边
+
     - 进制前缀旁边
+
     - 类型后缀旁边
