@@ -93,6 +93,8 @@ java Hello
 
 ## package 宣言
 
+为了分层级对class文件进行管理
+
 ### package 的位置
 
 ```java
