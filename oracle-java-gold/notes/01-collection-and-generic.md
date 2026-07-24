@@ -569,6 +569,150 @@ System.out.println(stack.pop()); // B
 ### PriorityQueue 优先队列
 
 
+## Map 映射，字典
+
+保存键值对 值可以重复 键唯一 不实现Collection
+
+主要实现类`HashMap`, `LinkedHashMap`, `TreeMap`。
+
+### 主要接口方法
+
+- put(K key, V value)
+
+    插入键值对 不论是不是存在在字典里
+
+    返回值为插入前键对应的值
+
+- putIfAbsent(K key, V value)
+
+    不存在时才会插入字典
+
+    返回值为插入前键对应的值
+
+- get(K key)
+
+    返回键对应的值, 键不存在则返回null
+
+    因为键对应的值可能是null，不太好用get来判断是不是存在某个键。此时可以使用containsKey方法来判断。
+
+- getOrDefault(K Key, D default)
+
+    返回键对应的值, 键不存在则返回预设值
+
+- remove(K key)
+
+    删除键，返回键对应的值
+
+- remove(K key, V value)
+
+    另一个重载方法，删除指定键值对，返回布尔值
+
+- replace(K key, V value)
+
+    替换键对应的值为value
+
+    返回值为替换前的值
+
+- replace(K key, V value1， V value2)
+
+    重载方法，只有当键对应的值为value1时，才替换键对应的值为value2
+
+    返回值为布尔值
+
+### 映射的遍历
+
+分为三种 对键的遍历 对值的遍历 对键值对（entryset）的遍历
+
+```java
+i18nCountry.put("America","美国");
+i18nCountry.put("French","法国");
+i18nCountry.put("Germany","德国");
+i18nCountry.put("Italy","意大利");
+
+// .keySet
+for (String key : i18nCountry.keySet()) {
+    System.out.print(key + " ");
+}
+
+// .values
+System.out.println();
+for (String value : i18nCountry.values()) {
+    System.out.print(value + " ");
+}
+
+// .entrySet
+System.out.println();
+for (Map.Entry<String, String> entry : i18nCountry.entrySet()) {
+    System.out.println(entry.getKey() + "->" + entry.getValue());
+}
+```
+
+* Entry是一个接口用来表示临时的键值对 基本用法
+
+```java
+Map.Entry<String, String> entry = Map.entry("key", "value");
+
+String value = entry.getValue();
+
+// Map.entry 创建的键值对不可修改
+entry.setValue("new value"); // UnsupportedOperationException
+
+```
+
+* 上面遍历所使用的方法创建的都是原字典的视图 修改会作用于原字典
+
+```java
+Map<String, String> map = new HashMap<>();
+
+map.put("key", "value");
+Collection<String> val = map.values();
+val.remove("value");
+System.out.println(map.containsKey("key")); // false
+
+map.put("key", "value");
+Set<String> keys = map.keySet();
+keys.remove("key");
+System.out.println(map.containsKey("key")); // false
+```
+
+### Compute 
+
+
+- ComputeIfAbsent()
+
+- Compute()
+
+- ComputeIfPresent()
+
+```java
+Map<String, List<String>> map = new HashMap<>();
+
+map.computeIfAbsent(
+    "Java",
+    key -> new ArrayList<>()
+).add("Generics");
+
+System.out.println(map);
+
+
+Map<String, Integer> map2 = new HashMap<>();
+map2.compute(
+    "A",
+    (key, oldValue) ->
+    oldValue == null ? 5 : oldValue + 1
+);
+
+System.out.println(map2);
+
+map2.computeIfPresent(
+    "A",
+    (key, oldValue) -> oldValue + 2
+);
+
+System.out.println(map2);
+```
+
+
 
 # 泛型
 
